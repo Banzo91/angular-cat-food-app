@@ -1,15 +1,66 @@
-<div class='navbar navbar-light bg-light'>
-  <form class="pull-right" action="/logout" method="POST">
-    <input type="submit" value="Logout" />
-  </form>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" >
+    <img src="" alt="cat-food-app" class="img-responsive">
+  </a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navb">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0 mr-sm-2">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-light my-2 my-sm-0" type="button">Search</button>
+    </form>
+    <form class="form-inline my-2 my-lg-0" action="/logout" method="POST">
+      <button class="btn btn-light my-2 my-sm-0" type="button">Logout</button>
+    </form>
+  </div>
+</nav>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1 class="mt-1 mb-1">Cat Food Manager</h1>
+  <p>Helps with managing food for your cat!</p> 
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid p-3 my-3">
 
-  <h2 class="mt-1 mb-1">Cat Food Manager</h2>
+  <div class="row">
+    <div class="col-sm-2">
+      <h3>Some Links</h3>
+      <p>Lorem ipsum dolor sit ame.</p>
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <hr class="d-sm-none">
+      <input type="button" value="Add Item" onclick="window.location.href='showFormForAdd'; return false;"
+      class="add-button" />
+    </div>
 
-  <input type="button" value="Add Item" onclick="window.location.href='showFormForAdd'; return false;"
-    class="add-button" />
+    <div class="col-sm-10">
+      <router-outlet></router-outlet>
+    </div>
 
-  <app-product-list></app-product-list>
+  </div>
 </div>

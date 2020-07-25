@@ -9,5 +9,5 @@ export class CatFood {
     rating: number;
     image: string;
     netMass: number;
-    nutritionalValues: NutritionalValues;
+    nutritionalValues: NutritionalValues = new NutritionalValues();
 }
