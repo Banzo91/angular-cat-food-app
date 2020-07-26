@@ -1,0 +1,87 @@
+<div class="container">
+
+    <form [formGroup] = "itemFormGroup" (ngSubmit)="onSubmit()">
+        
+        <table>
+            <tbody>
+                <tr>
+                    <td><label>Name:</label></td>
+                    <td>
+                        <input formControlName="name" type="text">                       
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><label>Type:</label></td>
+                    <td>
+                        <select formControlName="type" >
+                            <option value="Dry">Dry</option>
+                            <option value="Wet" selected="selected">Wet</option>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><label>Price:</label></td>
+                    <td>
+                        <input formControlName="price" type="text">                           
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Net mass:</label></td>
+                    <td>
+                        <input formControlName="netMass" type="text">     
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Rating:</label></td>
+                    <td>
+                        <select formControlName="rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Image:</label></td>
+                    <td>
+                        <input formControlName="image" type="text">
+                    </td>
+                </tr>
+                <div formGroupName="nutritionalValues">
+                    <tr>
+                        <td><label>Protein:</label></td>
+                        <td>
+                            <input formControlName="protein" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Carbohydrates:</label></td>
+                        <td>
+                            <input formControlName="carbohydrates" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Fat:</label></td>
+                        <td>
+                            <input formControlName="fat" type="text">
+                        </td>
+                    </tr>
+                </div>
+                <tr>
+                    <td><label></label></td>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </form>
+        
+    <p>
+        <a routerLink="/items">Back to the list</a>
+    </p>
+
+</div>

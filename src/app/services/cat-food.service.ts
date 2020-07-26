@@ -23,4 +23,16 @@ export class CatFoodService {
     
     return this.httpClient.get<CatFood[]>(this.baseUrl);
   }
+
+  addCatFoodItem(data: CatFood) {
+
+    const body = JSON.stringify(data);
+
+    console.log(body);
+
+    this.httpClient.post(this.baseUrl, body).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
+  }
 }

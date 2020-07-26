@@ -6,8 +6,11 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { HttpClientModule } from '@angular/common/http';
 import {Routes, RouterModule } from '@angular/router';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const routes: Routes = [
+  {path: 'new-item', component: AddProductComponent},
   {path: 'items/:id', component: ProductDetailComponent},
   {path: 'items', component: ProductListComponent},
   {path: '', redirectTo:'/items', pathMatch: 'full'},
@@ -18,12 +21,15 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    AddProductComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
