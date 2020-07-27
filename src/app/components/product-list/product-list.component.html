@@ -23,9 +23,11 @@
             <td>{{ item.netMass }}</td>
             <td>{{ item.rating }}</td>
             <td>
+                <a routerLink="/items/{{ item.id }}">
                 <img
                     src="{{ item.image }}"
                     height="200" width="200">
+                </a>
             </td>
         </tr>
     </tbody>

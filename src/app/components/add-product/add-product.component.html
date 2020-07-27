@@ -2,12 +2,12 @@
 
     <form [formGroup] = "itemFormGroup" (ngSubmit)="onSubmit()">
         
-        <table>
+        <table class="table">
             <tbody>
                 <tr>
                     <td><label>Name:</label></td>
                     <td>
-                        <input formControlName="name" type="text">                       
+                        <input class="form-control" formControlName="name" type="text">                       
                     </td>
 
                 </tr>
@@ -24,13 +24,13 @@
                 <tr>
                     <td><label>Price:</label></td>
                     <td>
-                        <input formControlName="price" type="text">                           
+                        <input class="form-control" formControlName="price" type="text">                           
                     </td>
                 </tr>
                 <tr>
                     <td><label>Net mass:</label></td>
                     <td>
-                        <input formControlName="netMass" type="text">     
+                        <input class="form-control" formControlName="netMass" type="text">     
                     </td>
                 </tr>
                 <tr>
@@ -48,32 +48,32 @@
                 <tr>
                     <td><label>Image:</label></td>
                     <td>
-                        <input formControlName="image" type="text">
+                        <input class="form-control" formControlName="image" type="text">
                     </td>
                 </tr>
                 <div formGroupName="nutritionalValues">
                     <tr>
                         <td><label>Protein:</label></td>
                         <td>
-                            <input formControlName="protein" type="text">
+                            <input class="form-control" formControlName="protein" type="text">
                         </td>
                     </tr>
                     <tr>
                         <td><label>Carbohydrates:</label></td>
                         <td>
-                            <input formControlName="carbohydrates" type="text">
+                            <input class="form-control" formControlName="carbohydrates" type="text">
                         </td>
                     </tr>
                     <tr>
                         <td><label>Fat:</label></td>
                         <td>
-                            <input formControlName="fat" type="text">
+                            <input class="form-control" formControlName="fat" type="text">
                         </td>
                     </tr>
                 </div>
                 <tr>
                     <td><label></label></td>
-                    <td><button type="submit">Submit</button></td>
+                    <td><button class="btn btn-primary btn-dark" type="submit">Submit</button></td>
                 </tr>
                 
             </tbody>
