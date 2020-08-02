@@ -1,0 +1,8 @@
+<ul class="nav nav-pills flex-column">
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/items">All Types</a>
+    </li>
+    <li *ngFor="let type of itemTypes" class="nav-item">
+        <a class="nav-link" routerLink="/items/type/{{ type.id }}">{{ type.type }}</a>
+    </li>
+</ul>
