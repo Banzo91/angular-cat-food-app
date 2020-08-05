@@ -1,34 +1,25 @@
-<table class="table table-hover">
-    <thead class="thead-dark">
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Price</th>
-            <th>Net mass</th>
-            <th>Rating</th>
-            <th>Image</th>
-        </tr>
-    </thead>
+<div class="row">
 
-    <tbody>
-        <tr *ngFor="let item of items">
+    <div *ngFor="let item of items" class="col-md-3">
+        <div class="product-box">
+            <a routerLink="/items/{{ item.id }}">
+                <img src="{{ item.image }}">
+            </a>
+            <br>
 
-            <td>
-                <a routerLink="/items/{{ item.id }}">
-                    {{ item.name }}
-                </a>
-            </td>
-            <td>{{ item.type.type }}</td>
-            <td>{{ item.price }}</td>
-            <td>{{ item.netMass }}</td>
-            <td>{{ item.rating }}</td>
-            <td>
-                <a routerLink="/items/{{ item.id }}">
-                <img
-                    src="{{ item.image }}"
-                    height="200" width="200">
-                </a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+            <span *ngFor="let index of [0,1,2,3,4]">
+                <div *ngIf="item.rating >= index + 1; else emptyStar" class="fa fa-star checked"></div>
+                <ng-template #emptyStar>
+                    <div class="fa fa-star"></div>
+                </ng-template>
+            </span>
+
+            <a routerLink="/items/{{ item.id }}">
+                <h1>{{ item.name }}</h1>
+            </a>
+            <br>
+            <h2>Type: {{ item.type.type }}</h2>
+            <div class="price">{{ item.price | currency:'PLN' }}</div>
+        </div>
+    </div> 
+</div>
