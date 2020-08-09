@@ -14,9 +14,8 @@
                 <tr>
                     <td><label>Type:</label></td>
                     <td>
-                        <select formControlName="type" >
-                            <option value="Dry">Dry</option>
-                            <option value="Wet" selected="selected">Wet</option>
+                        <select formGroupName="type" >
+                            <option *ngFor="let type of types" value="{{ type }}" formControlName="type">{{ type.type }}</option>
                         </select>
                     </td>
 
