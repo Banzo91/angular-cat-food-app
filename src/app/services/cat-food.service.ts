@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CatFood } from '../common/cat-food';
 import { CatFoodType } from '../common/cat-food-type';
@@ -44,7 +44,10 @@ export class CatFoodService {
 
     console.log(body);
 
-    this.httpClient.post(this.baseUrl, body).subscribe(
+    let headers = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json');;
+
+    this.httpClient.post<CatFood>(this.baseUrl, body, {headers}).subscribe(
       (res) => console.log(res),
       (err) => console.log(err)
     );

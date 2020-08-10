@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CatFood } from 'src/app/common/cat-food';
 import { CatFoodService } from 'src/app/services/cat-food.service';
 import { CatFoodType } from 'src/app/common/cat-food-type';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -17,16 +18,14 @@ export class AddProductComponent implements OnInit {
   types: CatFoodType[] = [];
 
   constructor(private formBuilder: FormBuilder,
-              private catFoodService: CatFoodService) { }
+              private catFoodService: CatFoodService,
+              private router: Router) { }
 
   ngOnInit(): void {
 
     this.itemFormGroup = this.formBuilder.group({
       name: ['', Validators.required],
-      type: this.formBuilder.group({
-        id: [''],
-        type: ['']
-      }),
+      type: [''],
       price: [''],
       rating: [''],
       image: [''],
@@ -47,5 +46,6 @@ export class AddProductComponent implements OnInit {
 
   onSubmit() {
     this.catFoodService.addCatFoodItem(this.itemFormGroup.value);
+    this.router.navigate(['/items']);
   }
 }
