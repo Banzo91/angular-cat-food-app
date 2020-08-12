@@ -44,3 +44,7 @@
 .checked {
     color: orange;
 }
+
+.input-space{
+    margin-bottom:20px
+}
