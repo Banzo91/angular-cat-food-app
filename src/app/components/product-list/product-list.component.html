@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row p-3 my-3">
 
     <div *ngFor="let item of items" class="col-md-3">
         <div class="product-box">
-            <a routerLink="/items/{{ item.id }}">
+            <a routerLink="/item/{{ item.id }}">
                 <img src="{{ item.image }}">
             </a>
             <br>
@@ -14,7 +14,7 @@
                 </ng-template>
             </span>
 
-            <a routerLink="/items/{{ item.id }}">
+            <a routerLink="/item/{{ item.id }}">
                 <h1>{{ item.name }}</h1>
             </a>
             <br>

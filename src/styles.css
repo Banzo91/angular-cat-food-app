@@ -4,6 +4,11 @@
  * ----------------------------
  */
 
+.category-panel {
+    background: #e5e5e5;
+    min-height:100vh;
+}
+
  .product-box img {
     width: 200px;
     height: 200px;
@@ -24,14 +29,14 @@
 .price{
     margin:15px 0 0;
     font-weight:800;
-    color:#333333
+    color: #0d0d0d
 }
 .product-box h1{
     font-size:18px;
-    padding-bottom:5px;
+    padding-bottom:2px;
     font-weight:600;
     padding-top:12px;
-    margin-bottom:7px;
+    margin-bottom:2px;
     color: #0d0d0d
 }
 .product-box h2{
@@ -45,6 +50,17 @@
     color: orange;
 }
 
-.input-space{
+.input-space {
     margin-bottom:20px
+}
+
+.category-link {
+    display:block;
+    color:#555;
+    font-size:16px;
+    padding:5px 0
+}
+
+.active-link {
+    font-weight: bold;
 }

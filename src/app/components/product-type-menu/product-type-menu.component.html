@@ -1,8 +1,9 @@
-<ul class="nav nav-pills flex-column">
+<ul class="nav nav-pills flex-column p-3 my-3">
+    <h5>Product Category</h5>
     <li class="nav-item">
-        <a class="nav-link" routerLink="/items">All</a>
+        <a class="nav-link category-link" routerLink="/items" routerLinkActive="active-link">All</a>
     </li>
     <li *ngFor="let type of itemTypes" class="nav-item">
-        <a class="nav-link" routerLink="/items/type/{{ type.id }}">{{ type.type }}</a>
+        <a class="nav-link category-link" routerLink="/type/{{ type.id }}" routerLinkActive="active-link">{{ type.type }}</a>
     </li>
 </ul>
