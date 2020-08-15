@@ -1,10 +1,11 @@
 import { NutritionalValues } from './nutritional-values';
+import { CatFoodType } from './cat-food-type';
 
 export class CatFood {
 
     id: number;
     name: string;
-    type: string;
+    type: CatFoodType;
     price: number;
     rating: number;
     image: string;

@@ -8,10 +8,13 @@ import {Routes, RouterModule } from '@angular/router';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ProductTypeMenuComponent } from './components/product-type-menu/product-type-menu.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 const routes: Routes = [
   {path: 'new-item', component: AddProductComponent},
-  {path: 'items/:id', component: ProductDetailComponent},
+  {path: 'item/:id', component: ProductDetailComponent},
+  {path: 'type/:id', component: ProductListComponent},
   {path: 'items', component: ProductListComponent},
   {path: '', redirectTo:'/items', pathMatch: 'full'},
   {path: '**', redirectTo:'/items', pathMatch: 'full'}
@@ -22,7 +25,9 @@ const routes: Routes = [
     AppComponent,
     ProductListComponent,
     ProductDetailComponent,
-    AddProductComponent
+    AddProductComponent,
+    ProductTypeMenuComponent,
+    NavBarComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

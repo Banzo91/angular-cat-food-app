@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CatFood } from 'src/app/common/cat-food';
 import { CatFoodService } from 'src/app/services/cat-food.service';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,7 +14,8 @@ export class ProductDetailComponent implements OnInit {
   item: CatFood = new CatFood();
 
   constructor(private catFoodService: CatFoodService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private location: Location) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(
@@ -30,5 +32,9 @@ export class ProductDetailComponent implements OnInit {
         this.item = data;
       }
     );
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

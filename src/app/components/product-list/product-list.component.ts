@@ -11,19 +11,39 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductListComponent implements OnInit {
 
   items: CatFood[];
+  typeId: number;
 
-  constructor(private catFoodService: CatFoodService) { }
+  constructor(private catFoodService: CatFoodService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.listItems();
+    this.route.paramMap.subscribe(() => {
+      this.listItems()
+    });
   }
 
   listItems() {
-    return this.catFoodService.getCatFoodItemList().subscribe(
-      data => {
-        this.items = data;
-      }
-    );
+
+    const viewMode = this.route.snapshot.paramMap.has('id');
+
+    if (viewMode) {
+      this.typeId = +this.route.snapshot.paramMap.get('id');
+
+      console.log("Type: " + this.typeId);
+
+      return this.catFoodService.getCatFoodItemListByType(this.typeId).subscribe(
+        data => {
+          this.items = data;
+        }
+      );
+
+    } else {
+      return this.catFoodService.getCatFoodItemList().subscribe(
+        data => {
+          this.items = data;
+        }
+      );
+    }
   }
 
 }
