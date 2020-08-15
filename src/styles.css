@@ -56,11 +56,26 @@
 
 .category-link {
     display:block;
-    color:#555;
+    color:#212529;
     font-size:16px;
     padding:5px 0
 }
 
 .active-link {
     font-weight: bold;
+}
+
+.title-icon {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.goback-link {
+    display:block;
+    color:#212529;
+    font-weight: bold;
+}
+
+.nav-button {
+    color: #ffffff;
 }
