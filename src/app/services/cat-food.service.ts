@@ -52,4 +52,11 @@ export class CatFoodService {
       (err) => console.log(err)
     );
   }
+
+  searchItems(keyword: string): Observable<CatFood[]> {
+
+    const searchUrl = `${this.baseUrl}/search/findByName?name=${keyword}`;
+
+    return this.httpClient.get<CatFood[]>(searchUrl);
+  }
 }
