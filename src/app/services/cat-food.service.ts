@@ -59,4 +59,14 @@ export class CatFoodService {
 
     return this.httpClient.get<CatFood[]>(searchUrl);
   }
+
+  deleteCatFoodItem(itemId: number) {
+
+    const deleteUrl = `${this.baseUrl}/${itemId}`;
+
+    this.httpClient.delete(deleteUrl).subscribe(
+      (res) => console.log('Delete action'),
+      (err) => console.log(err)
+    );
+  }
 }

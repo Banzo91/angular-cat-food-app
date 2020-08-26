@@ -5,7 +5,7 @@ export class CatFood {
 
     id: number;
     name: string;
-    type: CatFoodType;
+    type: CatFoodType = new CatFoodType();
     price: number;
     rating: number;
     image: string;

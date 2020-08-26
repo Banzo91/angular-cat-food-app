@@ -37,4 +37,9 @@ export class ProductDetailComponent implements OnInit {
   goBack() {
     this.location.back();
   }
+
+  deleteProduct(productId: number) {
+    this.catFoodService.deleteCatFoodItem(productId);
+    this.location.back();
+  }
 }
