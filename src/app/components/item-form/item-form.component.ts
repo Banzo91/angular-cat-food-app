@@ -6,11 +6,11 @@ import { CatFoodType } from 'src/app/common/cat-food-type';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  selector: 'app-item-form',
+  templateUrl: './item-form.component.html',
+  styleUrls: ['./item-form.component.css']
 })
-export class AddProductComponent implements OnInit {
+export class ItemFormComponent implements OnInit {
 
   itemFormGroup: FormGroup;
 
