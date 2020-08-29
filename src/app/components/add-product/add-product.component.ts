@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CatFood } from 'src/app/common/cat-food';
 import { CatFoodService } from 'src/app/services/cat-food.service';
 import { CatFoodType } from 'src/app/common/cat-food-type';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -16,10 +16,12 @@ export class AddProductComponent implements OnInit {
 
   item: CatFood = new CatFood();
   types: CatFoodType[] = [];
+  isExistingItem: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
               private catFoodService: CatFoodService,
-              private router: Router) { }
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -42,10 +44,39 @@ export class AddProductComponent implements OnInit {
         this.types = data;
       }
     );
+
+    this.isExistingItem = this.route.snapshot.paramMap.has('id');
+
+    if (this.isExistingItem) {
+      this.populateForm();
+    }
   }
 
   onSubmit() {
-    this.catFoodService.addCatFoodItem(this.itemFormGroup.value);
+
+    if (this.isExistingItem) {
+
+      const itemId = +this.route.snapshot.paramMap.get('id');
+      this.catFoodService.updateCatFoodItem(this.itemFormGroup.value, itemId);
+    } else {
+
+      this.catFoodService.addCatFoodItem(this.itemFormGroup.value);
+    }
+    
     this.router.navigate(['/items']);
+  }
+
+  populateForm() {
+
+    const itemId = +this.route.snapshot.paramMap.get('id');
+
+    this.catFoodService.getCatFoodItem(itemId).subscribe(
+      data => {
+        this.item = data;
+        this.itemFormGroup.patchValue(data);
+      }
+    )
+
+    console.log(this.item);
   }
 }

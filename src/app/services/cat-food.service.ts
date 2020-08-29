@@ -19,7 +19,7 @@ export class CatFoodService {
     return this.httpClient.get<CatFoodType[]>(this.typeUrl);
   }
 
-  getCatFoodItem(itemId: string): Observable<CatFood> {
+  getCatFoodItem(itemId: number): Observable<CatFood> {
 
     const itemUrl = `${this.baseUrl}/${itemId}`;
 
@@ -66,6 +66,22 @@ export class CatFoodService {
 
     this.httpClient.delete(deleteUrl).subscribe(
       (res) => console.log('Delete action'),
+      (err) => console.log(err)
+    );
+  }
+
+  updateCatFoodItem(data: CatFood, itemId: number) {
+
+    const updateUrl = `${this.baseUrl}/${itemId}`;
+    const body = JSON.stringify(data);
+
+    console.log(body);
+
+    let headers = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json');;
+
+    this.httpClient.put<CatFood>(updateUrl, body, {headers}).subscribe(
+      (res) => console.log(res),
       (err) => console.log(err)
     );
   }

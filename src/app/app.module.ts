@@ -13,6 +13,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [
+  {path: 'new-item/:id', component: AddProductComponent},
   {path: 'new-item', component: AddProductComponent},
   {path: 'item/:id', component: ProductDetailComponent},
   {path: 'search/:keyword', component: ProductListComponent},
