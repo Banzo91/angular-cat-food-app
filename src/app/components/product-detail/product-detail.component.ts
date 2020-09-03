@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CatFood } from 'src/app/common/cat-food';
 import { CatFoodService } from 'src/app/services/cat-food.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -14,6 +14,7 @@ export class ProductDetailComponent implements OnInit {
   item: CatFood = new CatFood();
 
   constructor(private catFoodService: CatFoodService,
+              private router: Router,
               private route: ActivatedRoute,
               private location: Location) { }
 
@@ -25,7 +26,7 @@ export class ProductDetailComponent implements OnInit {
 
   showProduct() {
 
-    const itemId = this.route.snapshot.paramMap.get('id');
+    const itemId = +this.route.snapshot.paramMap.get('id');
 
     return this.catFoodService.getCatFoodItem(itemId).subscribe(
       data => {
@@ -36,5 +37,10 @@ export class ProductDetailComponent implements OnInit {
 
   goBack() {
     this.location.back();
+  }
+
+  deleteProduct(productId: number) {
+    this.catFoodService.deleteCatFoodItem(productId);
+    this.router.navigateByUrl('/items');
   }
 }

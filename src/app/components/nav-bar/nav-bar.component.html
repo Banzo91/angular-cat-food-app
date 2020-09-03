@@ -9,13 +9,10 @@
   <div class="collapse navbar-collapse" id="navb">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link nav-button" href="/new-item">Add new item</a>
+        <a class="nav-link nav-button" href="/item-form">Add new item</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0 mr-sm-2">
-      <input class="form-control mr-sm-2" type="text" placeholder="Find item...">
-      <button class="btn btn-light my-2 my-sm-0" type="button">Search</button>
-    </form>
+    <app-search></app-search>
     <form class="form-inline my-2 my-lg-0" action="/logout" method="POST">
       <button class="btn btn-light my-2 my-sm-0" type="button">Logout</button>
     </form>

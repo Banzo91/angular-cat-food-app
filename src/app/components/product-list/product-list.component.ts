@@ -12,6 +12,7 @@ export class ProductListComponent implements OnInit {
 
   items: CatFood[];
   typeId: number;
+  searchMode: boolean = false;
 
   constructor(private catFoodService: CatFoodService,
               private route: ActivatedRoute) { }
@@ -23,6 +24,17 @@ export class ProductListComponent implements OnInit {
   }
 
   listItems() {
+
+    this.searchMode = this.route.snapshot.paramMap.has('keyword');
+
+    if (this.searchMode) {
+      this.handleSearchItems();
+    } else {
+      this.handleListItems();
+    }
+  }
+
+  handleListItems() {
 
     const viewMode = this.route.snapshot.paramMap.has('id');
 
@@ -44,6 +56,19 @@ export class ProductListComponent implements OnInit {
         }
       );
     }
+  }
+
+  handleSearchItems() {
+
+    const keyword: string = this.route.snapshot.paramMap.get('keyword');
+
+    console.log(keyword);
+
+    return this.catFoodService.searchItems(keyword).subscribe(
+      data => {
+        this.items = data;
+      }
+    );
   }
 
 }
