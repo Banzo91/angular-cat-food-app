@@ -85,4 +85,11 @@ export class CatFoodService {
       (err) => console.log(err)
     );
   }
+
+  getCatFoodItemListOrderedByRating(): Observable<CatFood[]> {
+    
+    const searchUrl = `${this.baseUrl}/search/findByRating`;
+
+    return this.httpClient.get<CatFood[]>(searchUrl);
+  }
 }

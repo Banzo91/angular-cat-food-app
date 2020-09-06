@@ -1,0 +1,46 @@
+<div class="container-fluid p-3 my-3">
+
+    <table class="table table-hover">
+
+        <thead class="thead-light">
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items">
+                <td>
+                    <a routerLink="/item/{{ item.id }}">
+                    <img
+                        src="{{ item.image }}"
+                        height="100" width="100">
+                    </a>
+                </td>
+
+                <td>
+                    <a routerLink="/item/{{ item.id }}">
+                        {{ item.name }}
+                    </a>
+                </td>
+
+                <td>{{ item.type.type }}</td>
+
+                <td>{{ item.price }}</td>
+
+                <td>
+                    <span *ngFor="let index of [0,1,2,3,4]">
+                        <div *ngIf="item.rating >= index + 1; else emptyStar" class="fa fa-star checked"></div>
+                        <ng-template #emptyStar>
+                            <div class="fa fa-star"></div>
+                        </ng-template>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
