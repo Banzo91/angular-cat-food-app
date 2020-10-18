@@ -11,6 +11,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProductTypeMenuComponent } from './components/product-type-menu/product-type-menu.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SearchComponent } from './components/search/search.component';
+import { ProductRankingComponent } from './components/product-ranking/product-ranking.component';
 
 const routes: Routes = [
   {path: 'item-form/:id', component: ItemFormComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'item/:id', component: ProductDetailComponent},
   {path: 'search/:keyword', component: ProductListComponent},
   {path: 'type/:id', component: ProductListComponent},
+  {path: 'ranking', component: ProductRankingComponent},
   {path: 'items', component: ProductListComponent},
   {path: '', redirectTo:'/items', pathMatch: 'full'},
   {path: '**', redirectTo:'/items', pathMatch: 'full'}
@@ -31,7 +33,8 @@ const routes: Routes = [
     ItemFormComponent,
     ProductTypeMenuComponent,
     NavBarComponent,
-    SearchComponent
+    SearchComponent,
+    ProductRankingComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
